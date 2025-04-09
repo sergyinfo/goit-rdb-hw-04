@@ -12,6 +12,6 @@ FROM order_detail od
   JOIN employee e ON o.employee_id = e.employee_id
   JOIN shipper sh ON o.shipper_id = sh.shipper_id
   JOIN supplier su ON p.supplier_id = su.supplier_id
-WHERE o.employee_id BETWEEN 3 AND 10
+WHERE o.employee_id > 3 AND o.employee_id <= 10
 GROUP BY ca.category_name
 HAVING AVG(od.quantity) > 21;
